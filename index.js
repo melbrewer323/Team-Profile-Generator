@@ -1,5 +1,8 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const Manager = require("./team/Manager");
+const Engineer = require("./team/Engineer");
+const Intern = require("./team/Intern");
 /* THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
 THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
 WHEN I select the engineer option
@@ -22,12 +25,12 @@ const managerQuestions = () => {
             },
             {
                 type: 'input',
-                name: 'emplId',
+                name: 'id',
                 message: "What is your employee Id?",
             },  
             {
                 type: 'input',
-                name: 'managerOfficeNum',
+                name: 'officeNum',
                 message: "What is the Manager's office number?",
             },  
             
@@ -49,7 +52,7 @@ const managerQuestions = () => {
             },
             {
                 type: 'input',
-                name: 'emplId',
+                name: 'id',
                 message: "What is your employee Id?",
             },  
             {
@@ -76,7 +79,7 @@ const managerQuestions = () => {
         },
         {
             type: 'input',
-            name: 'emplId',
+            name: 'id',
             message: "What is your employee Id?",
         },  
         {
