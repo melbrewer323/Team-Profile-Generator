@@ -9,6 +9,33 @@ THEN I am prompted to enter the intern’s name, ID, email, and school, and I am
 */
 const managerQuestions = () => {
     inquirer 
+    .prompt([ 
+        {
+            type: "input",
+            name: 'name',
+            message: "What is your name?"
+        },
+        {
+            type: 'input',
+            name: 'email',
+                message: "What is your Email?",
+            },
+            {
+                type: 'input',
+                name: 'emplId',
+                message: "What is your employee Id?",
+            },  
+            {
+                type: 'input',
+                name: 'managerOfficeNum',
+                message: "What is the Manager's office number?",
+            },  
+            
+        ])
+        
+    };
+    const engineerQuestions = () => {
+        inquirer 
         .prompt([ 
             {
                 type: "input",
@@ -27,11 +54,38 @@ const managerQuestions = () => {
             },  
             {
                 type: 'input',
-                name: 'managerOfficeNum',
-                message: "What is the Manager's office number?",
+                name: 'gitHub',
+                message: "What is your GitHub User Name?",
             },  
-
+            
         ])
+        
+    };
+    const internQuestions = () => {
+        inquirer 
+        .prompt([ 
+            {
+            type: "input",
+            name: 'name',
+            message: "What is your name?"
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "What is your Email?",
+        },
+        {
+            type: 'input',
+            name: 'emplId',
+            message: "What is your employee Id?",
+        },  
+        {
+            type: 'input',
+            name: 'school',
+            message: "What school do you attend?",
+        },  
+
+    ])
 
 };
 const firstQuestions = () => {
@@ -45,50 +99,21 @@ const firstQuestions = () => {
         }, 
 
     ])
-    .then((data) => {
-        if ()
+    .then((answers) => {
+        if (answers.emplRole  === "Manager"){
+            managerQuestions()
+        }
+        else if (answers.emplRole === "Engineer"){
+            engineerQuestions()
+        }
+        else if (answers.emplRole === "Intern"){
+            internQuestions()
+        }
 
     }
     )
 }
+firstQuestions()
 
 
 
-{
-    type: 'input',
-    name: 'managerName',
-    message: "What is the Manager's name?",
-  }, 
-{
-    type: 'input',
-    name: 'employeeId',
-    message: "What is the Manager's Id?",
-},   
-{
-    type: 'input',
-    name: 'managerEmail',
-    message: "What is the Manager's Email?",
-},
-{
-    type: 'input',
-    name: 'managerOfficeNum',
-    message: "What is the Manager's office number?",
-}, 
-{
-    type: 'list',
-    name: 'addEmpl',
-    message: "Do you want to add an employee?",
-    choices: ["yes", "no"]
-}, 
-{
-    type: 'list',
-    name: 'addEmpl',
-    message: "Do you want to add an employee?",
-    choices: ["yes", "no"]
-}, 
-{
-    type: 'list',
-    name: 'emplRole',
-    message: "What is the employees role?",
-    choices: ["Engineer", "Intern"]
-}, 
