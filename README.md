@@ -12,6 +12,6 @@ Answer questions in your terminal to create an HTML of your team profile.
 
 ## Links
 
-- GitHub: https://github.com/melbrewer323
+- GitHub: https://github.com/melbrewer323/Team-Profile-Generator
 
 
