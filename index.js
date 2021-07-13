@@ -88,7 +88,7 @@ const managerQuestions = () => {
         ])
         .then((answers) => {
             const addManager =  new Manager(answers.name, answers.id, answers.email, answers.officeNum);
-            employeeArray.push(addManager);
+            managerArray.push(addManager);
             console.log(managerArray);   
 
             firstQuestions()
@@ -205,13 +205,28 @@ const firstQuestions = () => {
             console.log(managerArray);
             console.log(engineerArray);
             console.log(internArray);
+            deleteHtml();
+            topHtml();
+            managerCard();
 
         }
 
     }
     )
-}
+};
 firstQuestions()
 
+const deleteHtml = () => {
+    fs.unlinkSync("./team.html");
+  };
+  
 
+const topHtml = () => {
+fs.appendFileSync("team.html", generateTopHtml()) 
+};
 
+const managerCard = () => {
+    managerArray.forEach((answers) => {
+        fs.appendFileSync("team.html", generateManagerCard(answers))
+    })
+};
