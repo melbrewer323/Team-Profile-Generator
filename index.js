@@ -100,7 +100,7 @@ const managerQuestions = () => {
         return `<div class="card" style="width: 18rem;">
          <div class="card-body ">
              <h5 class="card-title">${answers.name}</h5>
-             <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+             <h6 class="card-subtitle mb-2 text-muted">Engineer</h6>
              <ul class="list-group list-group-flush">
                  <li class="list-group-item">Id: ${answers.id}</li>
                  <li class="list-group-item">Email: ${answers.email}</li>
@@ -142,7 +142,7 @@ const managerQuestions = () => {
         return `<div class="card" style="width: 18rem;">
          <div class="card-body ">
              <h5 class="card-title">${answers.name}</h5>
-             <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+             <h6 class="card-subtitle mb-2 text-muted">Intern</h6>
              <ul class="list-group list-group-flush">
                  <li class="list-group-item">Id: ${answers.id}</li>
                  <li class="list-group-item">Email: ${answers.email}</li>
@@ -208,7 +208,9 @@ const firstQuestions = () => {
             deleteHtml();
             topHtml();
             managerCard();
-
+            engineerCard();
+            internCard();
+            generateEndHtml();
         }
 
     }
@@ -220,7 +222,6 @@ const deleteHtml = () => {
     fs.unlinkSync("./team.html");
   };
   
-
 const topHtml = () => {
 fs.appendFileSync("team.html", generateTopHtml()) 
 };
@@ -230,3 +231,19 @@ const managerCard = () => {
         fs.appendFileSync("team.html", generateManagerCard(answers))
     })
 };
+
+const engineerCard = () => {
+    engineerArray.forEach((answers) => {
+        fs.appendFileSync("team.html", generateEngineerCard(answers))
+    })
+};
+
+const internCard = () => {
+    internArray.forEach((answers) => {
+        fs.appendFileSync("team.html", generateInternCard(answers))
+    })
+};
+
+const endHtml = () => {
+    fs.appendFileSync("team.html", generateEndHtml()) 
+    };
