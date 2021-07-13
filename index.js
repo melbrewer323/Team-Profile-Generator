@@ -59,7 +59,18 @@ const managerQuestions = () => {
         })
 
     };
-    
+    const generateEngineerCard = (answers) => {
+        return `<div class="card" style="width: 18rem;">
+         <div class="card-body ">
+             <h5 class="card-title">${answers.name}</h5>
+             <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+             <ul class="list-group list-group-flush">
+                 <li class="list-group-item">Id: ${answers.id}</li>
+                 <li class="list-group-item">Email: ${answers.email}</li>
+                 <li class="list-group-item">GitHub: ${answers.gitHudb}</li>
+         </div>
+     </div>`
+     };
     const engineerQuestions = () => {
         inquirer 
         .prompt([ 
@@ -90,6 +101,18 @@ const managerQuestions = () => {
             firstQuestions()
         })
     };
+    const generateInternCard = (answers) => {
+        return `<div class="card" style="width: 18rem;">
+         <div class="card-body ">
+             <h5 class="card-title">${answers.name}</h5>
+             <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+             <ul class="list-group list-group-flush">
+                 <li class="list-group-item">Id: ${answers.id}</li>
+                 <li class="list-group-item">Email: ${answers.email}</li>
+                 <li class="list-group-item">School: ${answers.school}</li>
+         </div>
+     </div>`
+     };
     const internQuestions = () => {
         inquirer 
         .prompt([ 
